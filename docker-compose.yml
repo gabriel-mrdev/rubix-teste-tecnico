@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./packages/backend
+      dockerfile: Dockerfile
+    container_name: crud-livros-backend
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - FRONTEND_URL=http://localhost:3000
+    volumes:
+      - ./packages/backend/src/database:/app/src/database
+    networks:
+      - crud-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./packages/frontend
+      dockerfile: Dockerfile
+    container_name: crud-livros-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - crud-network
+    restart: unless-stopped
+
+networks:
+  crud-network:
+    driver: bridge
+
+volumes:
+  database-data:
