@@ -108,7 +108,7 @@ crud-livros-monorepo/
 1. **Clone o repositório**
 
    ```bash
-   git clone <url-do-repositorio>
+   git clone https://github.com/gabriel-mrdev/rubix-teste-tecnico.git
    cd crud-livros-monorepo
    ```
 
@@ -329,18 +329,6 @@ docker-compose -f docker-compose.prod.yml up -d
 3. **Railway** - Backend (Node.js + Express)
 4. **Heroku** - Full-stack
 5. **AWS/GCP** - Cloud providers
-
-### Variáveis de Ambiente
-
-```bash
-# Backend
-PORT=3001
-NODE_ENV=production
-FRONTEND_URL=https://seu-frontend.com
-
-# Frontend
-VITE_API_URL=https://sua-api.com
-```
 
 ## 🎨 Clean Code e Boas Práticas
 
